@@ -16,7 +16,11 @@ export class AreaChartComponent implements OnInit,AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.initChart();
+    am5.ready(function() {
+
+      // chart code
+      this.initChart();
+    });
   }
 
   initChart() {

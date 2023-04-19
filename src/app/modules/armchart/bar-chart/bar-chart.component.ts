@@ -13,6 +13,7 @@ import { data } from '../data';
 export class BarChartComponent implements OnInit, AfterViewInit {
   @Input() index;
   id;
+  that = this;
   constructor() {}
 
   ngOnInit(): void {
@@ -20,7 +21,14 @@ export class BarChartComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.initBar();
+    // this.initBar();
+    const self = this;
+    am5.ready(function() {
+      self.initBar()
+
+      // chart code
+    });
+
   }
 
   initBar() {

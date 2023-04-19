@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>List hight chart angular</h1>
+  <div class="row">
+    <ng-container *ngFor="let item of arr; let i=index">
+      <div class="col-4">
+        <div class="box">
+          <div class="flex align-center">
+            <button class="btn" (click)="changeChart(1, i)">Bar</button>
+            <button class="btn" (click)="changeChart(2, i)">Pie</button>
+            <button class="btn" (click)="changeChart(3, i)">Area</button>
+            <button class="btn" (click)="changeChart(4, i)">Line</button>
+            <button class="btn" (click)="changeChart(5, i)">Scatter</button>
+          </div>
+          <div>
+            <app-column-chart-angular *ngIf="item.type == 1" [index]="i"></app-column-chart-angular>
+            <app-pie-chart-angular *ngIf="item.type == 2" [index]="i"></app-pie-chart-angular>
+            <app-area-chart-angular *ngIf="item.type == 3" [index]="i"></app-area-chart-angular>
+            <app-line-chart-angular *ngIf="item.type == 4" [index]="i"></app-line-chart-angular>
+            <app-scatter-chart-angular *ngIf="item.type == 5" [index]="i"></app-scatter-chart-angular>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
