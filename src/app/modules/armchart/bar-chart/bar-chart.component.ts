@@ -1,7 +1,7 @@
 import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
 import * as am5 from '@amcharts/amcharts5';
 import * as am5xy from '@amcharts/amcharts5/xy';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 
 import { data } from '../data';
 
@@ -10,15 +10,22 @@ import { data } from '../data';
   templateUrl: './bar-chart.component.html',
   styleUrls: ['./bar-chart.component.scss'],
 })
-export class BarChartComponent implements OnInit {
+export class BarChartComponent implements OnInit, AfterViewInit {
+  @Input() index;
+  id;
   constructor() {}
 
   ngOnInit(): void {
+
+  }
+
+  ngAfterViewInit(): void {
     this.initBar();
   }
 
   initBar() {
-    var root = am5.Root.new('chartdiv');
+    this.id = 'chartdiv' + this.index;
+    var root = am5.Root.new(this.id);
 
     // Set themes
     // https://www.amcharts.com/docs/v5/concepts/themes/

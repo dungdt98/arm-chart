@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ArmChartModule } from './modules/armchart/arm-chart.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { ArmChartModule } from './modules/armchart/arm-chart.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ArmChartModule
+    ArmChartModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
