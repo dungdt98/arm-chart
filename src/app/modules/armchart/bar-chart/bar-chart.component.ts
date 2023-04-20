@@ -12,28 +12,22 @@ import { data } from '../data';
 })
 export class BarChartComponent implements OnInit, AfterViewInit {
   @Input() index;
-  id;
-  that = this;
+  id: string;
   constructor() {}
 
   ngOnInit(): void {
-
+    this.id = 'chartdiv' + this.index;
   }
 
   ngAfterViewInit(): void {
-    // this.initBar();
     const self = this;
     am5.ready(function() {
-      self.initBar()
-
-      // chart code
+      self.initBar(self.id, self.data)
     });
-
   }
 
-  initBar() {
-    this.id = 'chartdiv' + this.index;
-    var root = am5.Root.new(this.id);
+  initBar(id: string, data: any) {
+    var root = am5.Root.new(id);
 
     // Set themes
     // https://www.amcharts.com/docs/v5/concepts/themes/
@@ -120,8 +114,8 @@ export class BarChartComponent implements OnInit, AfterViewInit {
     //   return chart.get('colors').getIndex(series.columns.indexOf(target));
     // });
 
-    xAxis.data.setAll(this.data);
-    series.data.setAll(this.data);
+    xAxis.data.setAll(data);
+    series.data.setAll(data);
 
     // Make stuff animate on load
     // https://www.amcharts.com/docs/v5/concepts/animations/

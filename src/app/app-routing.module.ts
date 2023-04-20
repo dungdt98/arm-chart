@@ -1,10 +1,8 @@
-import { HighChartAngularModule } from './modules/high-chart-angular/high-chart-angular.module';
+import { DashboardHighChartAngularComponent } from './modules/high-chart-angular/dashboard-high-chart-angular/dashboard-high-chart-angular.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardHighChartComponent } from './modules/high-chart/dashboard-high-chart/dashboard-high-chart.component';
 import { DashboardArmChartComponent } from './modules/armchart/dashboard-arm-chart/dashboard-arm-chart.component';
-import { DashboarHighChartAngularComponent } from './modules/high-chart-angular/dashboar-high-chart-angular/dashboar-high-chart-angular.component';
-
 const routes: Routes = [
   {
     path: 'arm-chart',
@@ -24,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: 'high-chart-angular',
-    component: DashboarHighChartAngularComponent,
+    component: DashboardHighChartAngularComponent,
     loadChildren: () =>
       import('../app/modules/high-chart-angular/high-chart-angular.module').then(
         (m) => m.HighChartAngularModule

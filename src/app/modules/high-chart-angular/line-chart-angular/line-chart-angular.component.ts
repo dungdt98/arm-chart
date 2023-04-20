@@ -8,22 +8,31 @@ import * as Highcharts from 'highcharts';
 })
 export class LineChartAngularComponent implements OnInit {
   @Input() index;
+  dataFake = [
+    43934, 48656, 65165, 81827, 112143, 142383, 171533, 165174, 155157, 161454,
+    154610, 154611,
+  ];
   Highcharts = Highcharts;
-  linechart: any = {
+  options: any = {
     series: [
       {
-        data: [
-          43934, 48656, 65165, 81827, 112143, 142383, 171533, 165174, 155157, 161454,
-          154610, 154611,
-        ],
+        data: this.generateData(),
       },
     ],
     chart: {
       type: 'line',
     },
     title: {
-      text: 'linechart',
+      text: 'Line Chart',
     },
   };
   ngOnInit(): void {}
+
+  generateData() {
+    let data = [];
+    for(let i = 0; i < 10000; i ++ ){
+      data.push(Math.floor(Math.random() * 1001));
+    }
+    return data;
+  }
 }

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DashboarHighChartAngularComponent } from './dashboar-high-chart-angular.component';
+import { DashboarHighChartAngularComponent } from './dashboard-high-chart-angular.component';
 
 describe('DashboarHighChartAngularComponent', () => {
   let component: DashboarHighChartAngularComponent;

@@ -10,22 +10,21 @@ import { data, data3 } from '../data';
   styleUrls: ['./area-chart.component.scss'],
 })
 export class AreaChartComponent implements OnInit,AfterViewInit {
-  @Input() index;
-  id;
+  @Input() index: number;
+  id: string;
   ngOnInit(): void {
+    this.id = 'chartdiv' + this.index;
   }
 
   ngAfterViewInit(): void {
+    const self = this;
     am5.ready(function() {
-
-      // chart code
-      this.initChart();
+      self.initChart(self.id, data3)
     });
   }
 
-  initChart() {
-    this.id = 'chartdiv' + this.index;
-    let root = am5.Root.new(this.id);
+  initChart(id: string, data: any) {
+    let root = am5.Root.new(id);
     // Set themes
     // https://www.amcharts.com/docs/v5/concepts/themes/
     root.setThemes([am5themes_Animated.new(root)]);
@@ -53,7 +52,7 @@ export class AreaChartComponent implements OnInit,AfterViewInit {
     cursor.lineY.set('visible', false);
 
     // The data
-    let data = data3;
+    // let data = data3;
 
     // Create axes
     // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
