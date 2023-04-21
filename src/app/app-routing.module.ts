@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardHighChartComponent } from './modules/high-chart/dashboard-high-chart/dashboard-high-chart.component';
 import { DashboardArmChartComponent } from './modules/armchart/dashboard-arm-chart/dashboard-arm-chart.component';
+import { AppComponent } from './app.component';
 const routes: Routes = [
   {
     path: 'arm-chart',
@@ -26,6 +27,14 @@ const routes: Routes = [
     loadChildren: () =>
       import('../app/modules/high-chart-angular/high-chart-angular.module').then(
         (m) => m.HighChartAngularModule
+      ),
+  },
+  {
+    path: 'crontab',
+    component: AppComponent,
+    loadChildren: () =>
+      import('../app/modules/crontab/crontab.module').then(
+        (m) => m.CrontabModule
       ),
   },
 ];
